@@ -5,8 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConcerteView {
-    public Scanner scanner=new Scanner(System.in);
-    public ConcerteService concerteService=new ConcerteService();
+    private Scanner scanner;
+    public ConcerteService concerteService;
+
+    public ConcerteView() {
+        this.scanner = new Scanner(System.in);
+        this.concerteService = new ConcerteService();
+        play();
+    }
      public void meniu(){
          System.out.println("1->Arata toate concertele");
          System.out.println("2->Concertul cu cele mai putine bilete");
@@ -44,7 +50,7 @@ public class ConcerteView {
      public void afisareConcertCuCeleMaiPutineBilete(){
          Concerte concert=concerteService.celeMaiPutineBilete();
          System.out.println("CONCERTUL CU CELE MAI PUTINE BILETE ESTE:");
-         System.out.println("Concertul sustinut de "+concert.artist+" din orasul "+ concert.oras+" acesta avand doar "+concert.bileteDisponibile+" bilete disponibile");
+         System.out.println("Concertul sustinut de "+ concert.getArtist() +" din orasul "+ concert.getOras() +" acesta avand doar "+concert.bileteDisponibile+" bilete disponibile");
      }
 
     public void afisareCumparareBilete() {
